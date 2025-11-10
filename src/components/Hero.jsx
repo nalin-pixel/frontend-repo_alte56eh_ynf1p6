@@ -18,7 +18,7 @@ export default function Hero() {
               Explore a living interface that subtly morphs every 60 seconds, self-repairs with nanobot flair, and reveals modules as you progress.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#/home#social-games" className="inline-flex items-center px-5 py-3 rounded-md bg-slate-900 text-white font-semibold shadow hover:bg-slate-800">
+              <a href="#/social-games" className="inline-flex items-center px-5 py-3 rounded-md bg-slate-900 text-white font-semibold shadow hover:bg-slate-800">
                 Explore social games
               </a>
               <a href="#/contact" className="inline-flex items-center px-5 py-3 rounded-md bg-white text-slate-900 font-semibold border border-slate-300 hover:border-slate-900">

@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 
 const navItems = [
   { label: 'Home', href: '#/' },
-  { label: 'About', href: '#/home#about' },
-  { label: 'Social Games', href: '#/home#social-games' },
+  { label: 'About', href: '#/about' },
+  { label: 'Social Games', href: '#/social-games' },
   { label: 'Contact', href: '#/contact' },
   { label: 'Terms', href: '#/terms' },
   { label: 'Privacy', href: '#/privacy' },
@@ -13,7 +13,7 @@ export default function Header() {
   const morphStyle = useMemo(() => {
     return {
       animation: 'morph 12s ease-in-out infinite',
-    } as React.CSSProperties;
+    };
   }, []);
 
   return (

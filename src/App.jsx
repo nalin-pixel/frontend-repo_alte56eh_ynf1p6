@@ -6,9 +6,8 @@ import { HomePage, ContactPage, TermsPage, PrivacyPage } from './components/Page
 
 function useHashRoute() {
   const getRoute = () => {
-    const h = window.location.hash || '#/';
-    const clean = h.replace('#', '');
-    return clean;
+    const h = window.location.hash || '#/'
+    return h.replace('#', '');
   };
   const [route, setRoute] = useState(getRoute());
   useEffect(() => {
@@ -27,6 +26,25 @@ export default function App() {
     if (route.startsWith('/privacy')) return 'privacy';
     return 'home';
   }, [route]);
+
+  // Smooth-scroll to home sections when route encodes a section like "/social-games"
+  useEffect(() => {
+    if (page !== 'home') return;
+    const path = route.split('?')[0];
+    const seg = path.slice(1); // remove leading '/'
+    const section = ['about', 'dashboard', 'social-games', 'testimonials', 'faq', 'disclaimer'].includes(seg)
+      ? seg
+      : '';
+    if (section) {
+      const el = document.getElementById(section);
+      if (el) {
+        // delay to ensure elements are in DOM after route change
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+      }
+    } else if (window.scrollY > 0) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [page, route]);
 
   useEffect(() => {
     const titles = {
